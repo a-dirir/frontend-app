@@ -1,0 +1,32 @@
+/* make the main content to the right */
+
+.main_body {
+    margin-left: var(--side-bar-width)*0;
+    padding: 10px 10px;
+    position: relative;
+}
+
+.nav_options {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 50px 20px;
+    height: 60px;
+    background: var(--white-color);
+    margin-bottom: 10px;
+}
+
+.nav_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    height: 60px;
+    background: var(--white-color);
+    margin-bottom: 10px;
+}
+
+#customers_select {
+    width: 400px;
+    margin-top: 10px;
+}

@@ -1,0 +1,40 @@
+table {
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+table th {
+    color: #0e0c12;
+    font-size: 1.2em;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 25%;
+    /*handle long text*/
+    white-space: nowrap;
+}
+
+.options_form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.success-button {
+    color: green;
+}
+
+.edit-button {
+    color: rgb(0, 0, 0);
+}
+
+.delete-button {
+    color: rgb(255, 0, 0);
+}

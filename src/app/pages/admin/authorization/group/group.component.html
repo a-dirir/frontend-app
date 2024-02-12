@@ -1,0 +1,23 @@
+<h1 [hidden]="viewMode != 'table'" style="font-weight: bold;">Registered Groups</h1>
+
+<br>
+
+<div [hidden]="viewMode != 'table'">
+    <app-table [tableInput]="groupTableInput" (tableOutput)="onTableOutput($event)"></app-table>
+</div>
+
+
+<div *ngIf="viewMode == 'form'">
+    <br>
+    <app-dynamic-form [fieldset]="fieldset"></app-dynamic-form>
+    <br>
+
+    <!-- add save and cancel button at the right position-->
+    <div class="action_buttons">
+        <div></div>
+        <div>
+            <button mat-raised-button color="warn" style="margin-right: 10px;" (click)="onCancel()">Cancel</button>
+            <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+aside {
+    width: 280px;
+    padding-left: 0px;
+    margin-left: 0px;
+    float: left;
+    background-color: #0e0c12;
+    color: #fff;
+    font-size: 1.2em;
+    height: 100%;
+    display: block;
+}
+
+.logo_item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--blue-color);
+}
+
+.logo_img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+
+/* sidebar */
+
+.sidebar {
+    background-color: --var(dark-color);
+    width: var(--side-bar-width);
+    position: fixed;
+    left: 0;
+    height: 100%;
+    padding: 15px 0px;
+    overflow-y: scroll;
+    box-shadow: 0 0 1px var(--grey-color-light);
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.menu_content {
+    position: relative;
+}
+
+.menu_title {
+    margin: 15px 0;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.menu_title::before {
+    color: var(--grey-color);
+    white-space: nowrap;
+}
+
+.menu_items {
+    padding: 0;
+    list-style: none;
+}
+
+.navlink_icon {
+    position: relative;
+    font-size: 22px;
+    min-width: 50px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.navlink_icon::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 100px);
+    left: -20px;
+}
+
+.navlink_icon:hover {
+    background: var(--blue-color);
+}
+
+.sidebar .nav_link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 4px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--grey-color);
+    white-space: nowrap;
+}
+
+.nav_link:hover {
+    color: var(--white-color);
+    background: var(--blue-color);
+}
+
+.submenu_item {
+    cursor: pointer;
+}
+
+.submenu_item .arrow-left {
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    margin-right: auto;
+}
+
+.sublink .arrow-left {
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    margin-right: auto;
+}
+
+.sidebar.close .submenu {
+    display: none;
+}
+
+.submenu .sublink {
+    padding: 15px 15px 15px 52px;
+}
+
+.active {
+    color: var(--white-color);
+}

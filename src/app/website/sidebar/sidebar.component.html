@@ -1,0 +1,75 @@
+<aside class="sidebar">
+    <!-- Title and Logo -->
+    <div style="top: 0; position: sticky; display:block;">
+        <div class="logo_item" style="justify-content: center;">
+            <!-- <img src="../../assets/images/logo.png" alt="" class="logo_img">-->
+            COC Internal Service
+        </div>
+        <hr style="margin-top: 15px; color: white;">
+    </div>
+
+    <div class="menu_content" *ngFor="let primaryNode of config['routes']; let primaryNodeIndex=index">
+
+        <ul class="menu_items">
+            <div class="menu_title" (click)="primaryRouteClicked(primaryNode.url)">
+                <i class={{primaryNode.icon}}></i> {{primaryNode.name}}
+            </div>
+
+            <div *ngFor="let secondaryNode of primaryNode.children; let secondaryNodeIndex=index">
+                <li class="item" (click)="secondaryRouteClicked(secondaryNode.url, primaryNode.url)">
+                    <div class="nav_link submenu_item" *ngIf="config.currentRoute.secondary== secondaryNode.url; else secondaryNodeNotActive">
+                        <span class="navlink_icon active">
+                            <i class={{secondaryNode.icon}}></i>
+                        </span>
+                        <span class="navlink active">{{secondaryNode.name}}</span>
+
+                        <i *ngIf="secondaryNode.children.length > 0" class="bx bx-chevron-down arrow-left active"></i>
+                    </div>
+
+                    <ng-template #secondaryNodeNotActive>
+                        <div class="nav_link submenu_item">
+                            <span class="navlink_icon">
+                                <i class={{secondaryNode.icon}}></i>
+                            </span>
+                            <span class="navlink">{{secondaryNode.name}}</span>
+
+                            <i *ngIf="secondaryNode.children.length > 0" class="bx bx-chevron-right arrow-left"></i>
+                        </div>
+
+                    </ng-template>
+
+
+
+                    <ul class="menu_items submenu" *ngIf="config.currentRoute.secondary == secondaryNode.url;">
+                        <div *ngFor="let tertiaryNode of secondaryNode.children">
+                            <div (click)="tertiaryRouteClicked($event, tertiaryNode.url, secondaryNode.url)">
+                                <li *ngIf="config.currentRoute.tertiary == tertiaryNode.url; else tertiaryNodeNotActive" class="item">
+                                    <div class="nav_link sublink">
+
+                                        <span class="active">
+                                            <i class={{tertiaryNode.icon}} style="font-size: 0.4em; margin-right: 5px; padding-top: 3px;"></i>
+                                            {{tertiaryNode.name}}</span>
+                                    </div>
+                                </li>
+
+                                <ng-template #tertiaryNodeNotActive>
+                                    <div class="nav_link sublink">
+                                        <i class={{tertiaryNode.icon}} style="font-size: 0.4em; margin-right: 5px; padding-top: 3px;"></i> {{tertiaryNode.name}}
+                                    </div>
+                                </ng-template>
+
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+
+            </div>
+
+
+        </ul>
+
+
+
+    </div>
+
+</aside>

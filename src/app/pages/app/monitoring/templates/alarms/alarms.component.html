@@ -1,0 +1,56 @@
+<h1 [hidden]="viewMode != 'table'" style="font-weight: bold;">Alarms Templates</h1>
+
+<br>
+
+<div [hidden]="viewMode != 'table'">
+    <app-table [tableInput]="tableInput" (tableOutput)="onTableOutput($event)"></app-table>
+</div>
+
+
+<div *ngIf="viewMode == 'form'">
+    <br>
+    <app-dynamic-form [fieldset]="fieldset"></app-dynamic-form>
+    <br>
+
+    <!-- add save and cancel button at the right position-->
+    <div class="action_buttons">
+        <div></div>
+        <div>
+            <button mat-raised-button color="warn" style="margin-right: 10px;" (click)="onCancel()">Cancel</button>
+            <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="viewMode == 'template'" style="width: 100%;">
+
+    <div *ngFor="let variable of this.inputVariables | keyvalue">
+        <mat-form-field style="width: 100%;" *ngIf="variable.key != ''">
+            <mat-label>{{variable.key}}</mat-label>
+            <input matInput (input)="setVariable(variable.key, $event)">
+        </mat-form-field>
+    </div>
+    <br>
+
+    <br>
+
+    <div>
+        <!--add button to the most right to copy currentTemplate to clipboard-->
+        <div style="display:flex; justify-content: space-between;">
+            <div>
+            </div>
+            <div>
+                <button mat-raised-button color="primary" (click)="copyToClipboard()">Copy</button>
+            </div>
+        </div>
+
+        <pre>
+            <code [highlight]="currentTemplate" style="height: 400px;" [languages]="['asciidoc']"></code>
+        </pre>
+    </div>
+    <br>
+    <div>
+        <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+
+    </div>

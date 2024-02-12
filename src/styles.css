@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import "~jsoneditor/dist/jsoneditor.min.css";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --white-color: #fff;
+    --dark-color: #0e0c12;
+    --grey-color: #707070;
+    --grey-color-light: #aaa;
+    --side-bar-width: 280px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+div.jsoneditor-menu {
+    background-color: var(--dark-color);
+    color: #fff
+}
+
+textarea.jsoneditor-text {
+    height: 500px !important;
+    font-size: 1.9em;
+    font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--dark-color);
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #18023b;
+}
+
+json-editor {
+    height: 500px !important;
+    font-size: 1.9em;
+    font-family: "Poppins", sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
